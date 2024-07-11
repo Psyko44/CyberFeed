@@ -11,11 +11,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 import SearchBar from '@/components/SearchBar.vue';
 import Categories from '@/components/Categories.vue';
 import FeedList from '@/components/FeedList.vue';
-import RSSParser from 'rss-parser';
+import parser from 'RSSParser';
+import rssUrls from '../components/rssFeeds'; // Importation du fichier rssFeeds.ts
 
 export default defineComponent({
   name: 'Home',
@@ -25,12 +26,13 @@ export default defineComponent({
     FeedList
   },
   setup() {
-    const feeds = ref<any[]>([]);
-    const filteredFeeds = ref<any[]>([]);
+    const title = 'Hello Vue.js with TypeScript';
+    const feeds = ref([]);
+    const filteredFeeds = ref([]);
 
     async function fetchRSS() {
       const parser = new RSSParser();
-      const url = 'URL_DU_FLUX_RSS'; // Remplacez par l'URL du flux RSS que vous souhaitez utiliser
+      const url = 'https://feeds.feedburner.com/TheHackersNews'; // Remplacez par l'URL du flux RSS que vous souhaitez utiliser
       const feed = await parser.parseURL(url);
       feeds.value = feed.items;
       filteredFeeds.value = feeds.value;
@@ -46,7 +48,10 @@ export default defineComponent({
       // Ajoutez la logique pour filtrer par catégorie si nécessaire
     }
 
-    fetchRSS();
+    onMounted(() => {
+      console.log('Component mounted');
+      fetchRSS();
+    });
 
     return {
       filteredFeeds,
