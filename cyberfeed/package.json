@@ -13,6 +13,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vue/runtime-dom": "^3.4.31",
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12",
     "rss-url-parser": "^1.1.0",
     "vue": "^3.4.29"
   },
