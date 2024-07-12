@@ -1,20 +1,22 @@
 <template>
   <div :class="{ 'dark': isDarkMode }" class="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-    <header class=" p-4 dark:text-white text-black ">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="flex justify-evenly w-full items-center">
-          <h1 class="text-3xl sm:text-4xl font-bold mb-4">CyberFeed</h1>
-          <p class="text-lg sm:text-xl mb-4">
-            Explorez l'univers de la cybersécurité avec CyberFeed. <br> Découvrez les dernières actualités, tendances et analyses pointues <br> pour rester à jour et sécurisé dans un monde numérique en constante évolution.
-          </p>
-          <button @click="toggleDarkMode" class="bg-gray-800 text-white py-2 px-4 rounded dark:bg-gray-200 dark:text-gray-900">
-            {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
-          </button>
-        </div>
-      </div>
-    </header>
+    <header class="p-4 dark:text-white text-black">
+  <div class="container mx-auto">
+    <div class="flex flex-col sm:flex-row sm:justify-evenly  items-center justify-center">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">CyberFeed</h1>
+      <p class="text-lg sm:text-xl mb-4 text-center">
+        Explorez l'univers de la cybersécurité avec CyberFeed. <br>
+        Découvrez les dernières actualités, tendances et analyses pointues <br>
+        pour rester à jour et sécurisé dans un monde numérique en constante évolution.
+      </p>
+      <button @click="toggleDarkMode" class="bg-gray-800 text-white py-2 px-4 rounded dark:bg-gray-200 dark:text-gray-900">
+        {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+      </button>
+    </div>
+  </div>
+</header>
 
-    <div class="banner-container flex items-center justify-center">
+    <div class="banner-container flex sm:items-center sm:justify-center">
   <img src="@/assets/img/header.png" alt="Header Background" class="w-full h-auto">
 </div>
 
